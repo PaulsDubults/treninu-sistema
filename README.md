@@ -54,5 +54,4 @@ flask --app run.py run
 - admins: `admin` / `admin123`
 - lietotājs: `pauls` / `parole123`
 
-## GitHub iesniegšanai
-GitHub repozitorijā jāieliek **visa šī mapes struktūra atarhivētā veidā**, nevis tikai ZIP fails.
+
