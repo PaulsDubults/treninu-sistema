@@ -1,0 +1,276 @@
+/* Šis noteikums nosaka pamatkrāsas un fontu visai lapai. */
+body {
+    /* Šī rinda noņem noklusēto ārējo atkāpi. */
+    margin: 0;
+
+    /* Šī rinda nosaka salasāmu fontu. */
+    font-family: Arial, Helvetica, sans-serif;
+
+    /* Šī rinda iestata gaišu fona krāsu. */
+    background: #f4f7fb;
+
+    /* Šī rinda iestata tumšu teksta krāsu. */
+    color: #1f2937;
+}
+
+/* Šis noteikums nosaka kopējo satura platuma ierobežojumu. */
+.ietvars {
+    /* Šī rinda ierobežo maksimālo platumu. */
+    max-width: 1100px;
+
+    /* Šī rinda centrē saturu horizontāli. */
+    margin: 0 auto;
+
+    /* Šī rinda pievieno iekšējās malas atkāpes. */
+    padding: 0 20px;
+}
+
+/* Šis noteikums noformē galveni. */
+.galvene {
+    /* Šī rinda nosaka tumši zilu fonu. */
+    background: #0f172a;
+
+    /* Šī rinda iestata baltu tekstu galvenē. */
+    color: white;
+
+    /* Šī rinda pievieno vertikālu iekšējo atkāpi. */
+    padding: 18px 0;
+}
+
+/* Šis noteikums noformē virsrakstu galvenē. */
+.galvene h1 {
+    /* Šī rinda noņem virsraksta noklusēto atstarpi. */
+    margin: 0 0 12px 0;
+
+    /* Šī rinda iestata fonta izmēru. */
+    font-size: 30px;
+}
+
+/* Šis noteikums noformē navigācijas saites. */
+nav a {
+    /* Šī rinda pievieno atstarpi starp saitēm. */
+    margin-right: 16px;
+
+    /* Šī rinda iestata saišu krāsu. */
+    color: #dbeafe;
+
+    /* Šī rinda noņem pasvītrojumu. */
+    text-decoration: none;
+
+    /* Šī rinda padara saites nedaudz treknākas. */
+    font-weight: 600;
+}
+
+/* Šis noteikums pievieno pārmaiņu efektu, kad pele ir virs saites. */
+nav a:hover {
+    /* Šī rinda padara saiti gandrīz baltu. */
+    color: white;
+}
+
+/* Šis noteikums noformē galveno saturu. */
+.saturs {
+    /* Šī rinda pievieno ārējo atkāpi no augšas un apakšas. */
+    padding-top: 24px;
+    padding-bottom: 40px;
+}
+
+/* Šis noteikums noformē kartes. */
+.karte {
+    /* Šī rinda iestata baltu fonu. */
+    background: white;
+
+    /* Šī rinda noapaļo stūrus. */
+    border-radius: 16px;
+
+    /* Šī rinda pievieno iekšējo atstarpi. */
+    padding: 22px;
+
+    /* Šī rinda pievieno ārējo atstarpi starp kartēm. */
+    margin-bottom: 20px;
+
+    /* Šī rinda pievieno maigu ēnu. */
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+}
+
+/* Šis noteikums noformē ievada jeb hero karti. */
+.hero {
+    /* Šī rinda iestata nedaudz lielāku iekšējo atstarpi. */
+    padding: 30px;
+}
+
+/* Šis noteikums noformē formu kartes platumu. */
+.forma-karte {
+    /* Šī rinda ierobežo maksimālo formas platumu. */
+    max-width: 700px;
+}
+
+/* Šis noteikums noformē pogu rindu. */
+.pogu-rinda {
+    /* Šī rinda izmanto flex izkārtojumu. */
+    display: flex;
+
+    /* Šī rinda pievieno atstarpi starp pogām. */
+    gap: 12px;
+
+    /* Šī rinda ļauj pogām vajadzības gadījumā pāriet nākamajā rindā. */
+    flex-wrap: wrap;
+
+    /* Šī rinda pievieno atstarpi virs pogām. */
+    margin-top: 18px;
+}
+
+/* Šis noteikums noformē pogu un saites pogas stilā. */
+.poga {
+    /* Šī rinda iestata zilganu fonu. */
+    background: #2563eb;
+
+    /* Šī rinda iestata baltu tekstu. */
+    color: white;
+
+    /* Šī rinda noņem saites pasvītrojumu. */
+    text-decoration: none;
+
+    /* Šī rinda noņem noklusēto pogas apmali. */
+    border: none;
+
+    /* Šī rinda noapaļo pogas stūrus. */
+    border-radius: 10px;
+
+    /* Šī rinda pievieno iekšējo atstarpi. */
+    padding: 12px 18px;
+
+    /* Šī rinda padara kursoru par rociņu. */
+    cursor: pointer;
+
+    /* Šī rinda padara tekstu treknāku. */
+    font-weight: 700;
+
+    /* Šī rinda ļauj pogai būt tikai tik platai, cik nepieciešams. */
+    width: fit-content;
+}
+
+/* Šis noteikums noformē otru pogas variantu. */
+.poga-otra {
+    /* Šī rinda iestata gaišāku fona krāsu. */
+    background: #64748b;
+}
+
+/* Šis noteikums noformē formas elementus. */
+form {
+    /* Šī rinda izmanto kolonnas izkārtojumu. */
+    display: flex;
+
+    /* Šī rinda sakārto elementus vertikāli. */
+    flex-direction: column;
+
+    /* Šī rinda pievieno atstarpi starp formas elementiem. */
+    gap: 10px;
+}
+
+/* Šis noteikums noformē etiķetes. */
+label {
+    /* Šī rinda padara etiķetes treknākas. */
+    font-weight: 700;
+}
+
+/* Šis noteikums noformē ievadlaukos, select un textarea. */
+input,
+select,
+textarea {
+    /* Šī rinda iestata vienmērīgu iekšējo atstarpi. */
+    padding: 11px 12px;
+
+    /* Šī rinda iestata pelēku apmali. */
+    border: 1px solid #cbd5e1;
+
+    /* Šī rinda noapaļo stūrus. */
+    border-radius: 10px;
+
+    /* Šī rinda iestata fonta izmēru. */
+    font-size: 16px;
+
+    /* Šī rinda iestata baltu fonu. */
+    background: white;
+}
+
+/* Šis noteikums noformē tabulas. */
+.tabula {
+    /* Šī rinda liek tabulai aizņemt visu pieejamo platumu. */
+    width: 100%;
+
+    /* Šī rinda sapludina šūnu apmales. */
+    border-collapse: collapse;
+
+    /* Šī rinda pievieno atstarpi virs tabulas. */
+    margin-top: 12px;
+}
+
+/* Šis noteikums noformē tabulas galvenes un šūnas. */
+.tabula th,
+.tabula td {
+    /* Šī rinda iestata vienmērīgas iekšējās atkāpes. */
+    padding: 12px;
+
+    /* Šī rinda iestata apakšējo malu starp rindām. */
+    border-bottom: 1px solid #e2e8f0;
+
+    /* Šī rinda nolīdzina tekstu pie kreisās malas. */
+    text-align: left;
+
+    /* Šī rinda nolīdzina saturu vertikāli vidū. */
+    vertical-align: middle;
+}
+
+/* Šis noteikums noformē tabulas galveni. */
+.tabula th {
+    /* Šī rinda iestata gaiši zilu fonu. */
+    background: #eff6ff;
+}
+
+/* Šis noteikums noformē flash ziņu konteineru. */
+.flash-konteiners {
+    /* Šī rinda pievieno atstarpi zem ziņām. */
+    margin-bottom: 18px;
+}
+
+/* Šis noteikums noformē visus paziņojumus. */
+.flash {
+    /* Šī rinda pievieno iekšējo atstarpi. */
+    padding: 12px 14px;
+
+    /* Šī rinda noapaļo stūrus. */
+    border-radius: 10px;
+
+    /* Šī rinda pievieno atstarpi starp ziņām. */
+    margin-bottom: 10px;
+
+    /* Šī rinda padara tekstu treknāku. */
+    font-weight: 700;
+}
+
+/* Šis noteikums noformē veiksmes paziņojumu. */
+.flash.success {
+    /* Šī rinda iestata gaiši zaļu fonu. */
+    background: #dcfce7;
+}
+
+/* Šis noteikums noformē kļūdas paziņojumu. */
+.flash.error {
+    /* Šī rinda iestata gaiši sarkanu fonu. */
+    background: #fee2e2;
+}
+
+/* Šis noteikums noformē informatīvo paziņojumu. */
+.flash.info {
+    /* Šī rinda iestata gaiši zilu fonu. */
+    background: #dbeafe;
+}
+
+/* Šis noteikums noformē grafika laukumu. */
+#progressaGrafiks {
+    /* Šī rinda iestata maksimālo grafika augstumu. */
+    max-height: 420px;
+
+    /* Šī rinda pievieno augšējo atstarpi virs grafika. */
+    margin-top: 16px;
+}

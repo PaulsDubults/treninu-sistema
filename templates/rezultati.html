@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto bāzes izkārtojumu. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk lapas saturu. -->
+<section class="karte">
+    <!-- Šī rinda izveido augšējo rezultātu karti. -->
+    <h2>Mani rezultāti</h2>
+    <!-- Šī rinda parāda lapas virsrakstu. -->
+    <p>Tabulā ir redzami tikai tava konta rezultāti, bet grafikā var apskatīt progresu vienam vingrinājumam.</p>
+    <!-- Šī rinda paskaidro lapas funkciju. -->
+</section>
+<!-- Šī rinda aizver ievada karti. -->
+
+<section class="karte">
+    <!-- Šī rinda izveido grafika karti. -->
+    <h3>Progresa grafiks</h3>
+    <!-- Šī rinda parāda grafika virsrakstu. -->
+    <label for="grafika_vingrinajums">Izvēlies vingrinājumu grafikam</label>
+    <!-- Šī rinda parāda grafika filtra etiķeti. -->
+    <select id="grafika_vingrinajums">
+        <!-- Šī rinda izveido nolaižamo sarakstu grafikam. -->
+        {% for vingrinajums in vingrinajumi %}
+        <!-- Šī rinda iziet cauri visiem vingrinājumiem. -->
+        <option value="{{ vingrinajums['id'] }}">{{ vingrinajums['nosaukums'] }}</option>
+        <!-- Šī rinda izveido vienu izvēles opciju. -->
+        {% endfor %}
+        <!-- Šī rinda aizver vingrinājumu ciklu. -->
+    </select>
+    <!-- Šī rinda aizver nolaižamo sarakstu. -->
+    <canvas id="progressaGrafiks"></canvas>
+    <!-- Šī rinda izveido laukumu Chart.js grafikam. -->
+</section>
+<!-- Šī rinda aizver grafika karti. -->
+
+<section class="karte">
+    <!-- Šī rinda izveido tabulas karti. -->
+    <h3>Rezultātu tabula</h3>
+    <!-- Šī rinda parāda tabulas virsrakstu. -->
+    <table class="tabula">
+        <!-- Šī rinda izveido rezultātu tabulu. -->
+        <thead>
+            <!-- Šī rinda sāk tabulas galveni. -->
+            <tr>
+                <!-- Šī rinda sāk galvenes rindu. -->
+                <th>Datums</th>
+                <!-- Šī rinda parāda datuma kolonnas virsrakstu. -->
+                <th>Vingrinājums</th>
+                <!-- Šī rinda parāda vingrinājuma kolonnas virsrakstu. -->
+                <th>Svars</th>
+                <!-- Šī rinda parāda svara kolonnas virsrakstu. -->
+                <th>Komplekti</th>
+                <!-- Šī rinda parāda komplektu kolonnas virsrakstu. -->
+                <th>Atkārtojumi</th>
+                <!-- Šī rinda parāda atkārtojumu kolonnas virsrakstu. -->
+                <th>Piezīmes</th>
+                <!-- Šī rinda parāda piezīmju kolonnas virsrakstu. -->
+            </tr>
+            <!-- Šī rinda aizver galvenes rindu. -->
+        </thead>
+        <!-- Šī rinda aizver galveni. -->
+        <tbody>
+            <!-- Šī rinda sāk tabulas ķermeni. -->
+            {% for rezultats in rezultati %}
+            <!-- Šī rinda iziet cauri visiem rezultātu ierakstiem. -->
+            <tr>
+                <!-- Šī rinda sāk vienu datu rindu. -->
+                <td>{{ rezultats['datums'] }}</td>
+                <!-- Šī rinda parāda datumu. -->
+                <td>{{ rezultats['nosaukums'] }}</td>
+                <!-- Šī rinda parāda vingrinājuma nosaukumu. -->
+                <td>{{ rezultats['svars_kg'] }}</td>
+                <!-- Šī rinda parāda svaru. -->
+                <td>{{ rezultats['komplekti'] }}</td>
+                <!-- Šī rinda parāda komplektu skaitu. -->
+                <td>{{ rezultats['atkartojumi'] }}</td>
+                <!-- Šī rinda parāda atkārtojumu skaitu. -->
+                <td>{{ rezultats['piezimes'] or '-' }}</td>
+                <!-- Šī rinda parāda piezīmes vai defisi, ja piezīmju nav. -->
+            </tr>
+            <!-- Šī rinda aizver vienu datu rindu. -->
+            {% endfor %}
+            <!-- Šī rinda aizver rezultātu ciklu. -->
+        </tbody>
+        <!-- Šī rinda aizver tabulas ķermeni. -->
+    </table>
+    <!-- Šī rinda aizver tabulu. -->
+</section>
+<!-- Šī rinda aizver tabulas karti. -->
+
+<script src="{{ url_for('static', filename='rezultati.js') }}"></script>
+<!-- Šī rinda pieslēdz JavaScript failu grafikam. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

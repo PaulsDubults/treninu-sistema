@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto base izkārtojumu. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk lapas saturu. -->
+<section class="karte forma-karte">
+    <!-- Šī rinda izveido karti jauna vingrinājuma pievienošanai. -->
+    <h2>Pievienot vingrinājumu</h2>
+    <!-- Šī rinda parāda virsrakstu. -->
+    <form method="post">
+        <!-- Šī rinda atver POST formu. -->
+        <label for="nosaukums">Nosaukums</label>
+        <!-- Šī rinda parāda nosaukuma etiķeti. -->
+        <input id="nosaukums" name="nosaukums" type="text" required>
+        <!-- Šī rinda izveido nosaukuma ievadlauku. -->
+        <label for="muskulu_grupa">Muskuļu grupa</label>
+        <!-- Šī rinda parāda muskuļu grupas etiķeti. -->
+        <input id="muskulu_grupa" name="muskulu_grupa" type="text">
+        <!-- Šī rinda izveido muskuļu grupas ievadlauku. -->
+        <label for="apraksts">Apraksts</label>
+        <!-- Šī rinda parāda apraksta etiķeti. -->
+        <textarea id="apraksts" name="apraksts" rows="4"></textarea>
+        <!-- Šī rinda izveido apraksta teksta laukumu. -->
+        <button type="submit" class="poga">Pievienot</button>
+        <!-- Šī rinda izveido formas nosūtīšanas pogu. -->
+    </form>
+    <!-- Šī rinda aizver formu. -->
+</section>
+<!-- Šī rinda aizver formu karti. -->
+
+<section class="karte">
+    <!-- Šī rinda izveido saraksta karti. -->
+    <h3>Esošie vingrinājumi</h3>
+    <!-- Šī rinda parāda saraksta virsrakstu. -->
+    <table class="tabula">
+        <!-- Šī rinda izveido vingrinājumu tabulu. -->
+        <thead><tr><th>ID</th><th>Nosaukums</th><th>Muskuļu grupa</th><th>Apraksts</th></tr></thead>
+        <!-- Šī rinda izveido tabulas galveni. -->
+        <tbody>
+            <!-- Šī rinda sāk tabulas pamatdaļu. -->
+            {% for vingrinajums in vingrinajumi %}
+            <!-- Šī rinda iziet cauri visiem vingrinājumiem. -->
+            <tr>
+                <!-- Šī rinda sāk vienu datu rindu. -->
+                <td>{{ vingrinajums['id'] }}</td>
+                <!-- Šī rinda parāda ID. -->
+                <td>{{ vingrinajums['nosaukums'] }}</td>
+                <!-- Šī rinda parāda nosaukumu. -->
+                <td>{{ vingrinajums['muskulu_grupa'] }}</td>
+                <!-- Šī rinda parāda muskuļu grupu. -->
+                <td>{{ vingrinajums['apraksts'] }}</td>
+                <!-- Šī rinda parāda aprakstu. -->
+            </tr>
+            <!-- Šī rinda aizver vienu datu rindu. -->
+            {% endfor %}
+            <!-- Šī rinda aizver ciklu. -->
+        </tbody>
+        <!-- Šī rinda aizver pamatdaļu. -->
+    </table>
+    <!-- Šī rinda aizver tabulu. -->
+</section>
+<!-- Šī rinda aizver saraksta karti. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto base izkārtojumu. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk lietotāju lapas saturu. -->
+<section class="karte">
+    <!-- Šī rinda izveido lietotāju saraksta karti. -->
+    <h2>Lietotāji</h2>
+    <!-- Šī rinda parāda virsrakstu. -->
+    <table class="tabula">
+        <!-- Šī rinda izveido lietotāju tabulu. -->
+        <thead><tr><th>ID</th><th>Vārds</th><th>Lietotājvārds</th><th>Loma</th><th>Izveidots</th></tr></thead>
+        <!-- Šī rinda izveido tabulas galveni. -->
+        <tbody>
+            <!-- Šī rinda sāk tabulas pamatdaļu. -->
+            {% for lietotajs in lietotaji %}
+            <!-- Šī rinda iziet cauri visiem lietotājiem. -->
+            <tr>
+                <!-- Šī rinda sāk vienu rindu. -->
+                <td>{{ lietotajs['id'] }}</td>
+                <!-- Šī rinda parāda ID. -->
+                <td>{{ lietotajs['vards'] }}</td>
+                <!-- Šī rinda parāda vārdu. -->
+                <td>{{ lietotajs['lietotajvards'] }}</td>
+                <!-- Šī rinda parāda lietotājvārdu. -->
+                <td>{{ lietotajs['loma'] }}</td>
+                <!-- Šī rinda parāda lomu. -->
+                <td>{{ lietotajs['izveidots'] }}</td>
+                <!-- Šī rinda parāda izveidošanas datumu. -->
+            </tr>
+            <!-- Šī rinda aizver vienu rindu. -->
+            {% endfor %}
+            <!-- Šī rinda aizver ciklu. -->
+        </tbody>
+        <!-- Šī rinda aizver tabulas pamatdaļu. -->
+    </table>
+    <!-- Šī rinda aizver tabulu. -->
+</section>
+<!-- Šī rinda aizver karti. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

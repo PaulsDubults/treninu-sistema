@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- Šī rinda sāk HTML5 dokumentu. -->
+<html lang="lv">
+<!-- Šī rinda atver HTML dokumentu latviešu valodai. -->
+<head>
+    <!-- Šī rinda atver galvas daļu tehniskajiem iestatījumiem. -->
+    <meta charset="UTF-8">
+    <!-- Šī rinda nosaka UTF-8 kodējumu latviešu burtiem. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Šī rinda nodrošina korektu attēlojumu mobilajās ierīcēs. -->
+    <title>Treniņu sistēma</title>
+    <!-- Šī rinda nosaka lapas virsrakstu pārlūkā. -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Šī rinda pieslēdz CSS stila failu. -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Šī rinda pieslēdz ārējo Chart.js bibliotēku grafikam. -->
+</head>
+<!-- Šī rinda aizver head daļu. -->
+<body>
+<!-- Šī rinda atver lapas redzamo daļu. -->
+    <header class="galvene">
+        <!-- Šī rinda izveido augšējo navigācijas joslu. -->
+        <div class="ietvars">
+            <!-- Šī rinda ierobežo satura platumu. -->
+            <h1>Treniņu plāna un rezultātu sistēma</h1>
+            <!-- Šī rinda parāda projekta nosaukumu. -->
+            <nav>
+                <!-- Šī rinda atver navigācijas izvēlni. -->
+                <a href="{{ url_for('index') }}">Sākums</a>
+                <!-- Šī rinda izveido saiti uz sākumlapu. -->
+                {% if current_user.is_authenticated %}
+                <!-- Šī rinda pārbauda, vai lietotājs ir pieslēdzies. -->
+                <a href="{{ url_for('plans.mans_plans') }}">Mans plāns</a>
+                <!-- Šī rinda parāda saiti uz lietotāja plānu. -->
+                <a href="{{ url_for('rezultati.skatit_rezultatus') }}">Rezultāti</a>
+                <!-- Šī rinda parāda saiti uz rezultātu lapu. -->
+                <a href="{{ url_for('rezultati.pievienot_rezultatu') }}">Pievienot rezultātu</a>
+                <!-- Šī rinda parāda saiti uz rezultāta pievienošanu. -->
+                {% if current_user.loma == 'admins' %}
+                <!-- Šī rinda pārbauda, vai pieslēgtais lietotājs ir admins. -->
+                <a href="{{ url_for('admin.admin_sakums') }}">Admin</a>
+                <!-- Šī rinda parāda saiti uz admin sadaļu. -->
+                {% endif %}
+                <!-- Šī rinda aizver admin lomas pārbaudi. -->
+                <a href="{{ url_for('auth.iziet') }}">Iziet</a>
+                <!-- Šī rinda parāda saiti izrakstīšanās darbībai. -->
+                {% else %}
+                <!-- Šī rinda sāk izvēlni nepieslēgtam lietotājam. -->
+                <a href="{{ url_for('auth.pieslegties') }}">Pieslēgties</a>
+                <!-- Šī rinda parāda saiti uz pieslēgšanās lapu. -->
+                <a href="{{ url_for('auth.registreties') }}">Reģistrēties</a>
+                <!-- Šī rinda parāda saiti uz reģistrācijas lapu. -->
+                {% endif %}
+                <!-- Šī rinda aizver pieslēgšanās stāvokļa pārbaudi. -->
+            </nav>
+            <!-- Šī rinda aizver navigācijas izvēlni. -->
+        </div>
+        <!-- Šī rinda aizver galvenes ietvaru. -->
+    </header>
+    <!-- Šī rinda aizver galveni. -->
+
+    <main class="ietvars saturs">
+        <!-- Šī rinda atver galveno satura bloku. -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        <!-- Šī rinda saņem visus pagaidu paziņojumus ar kategorijām. -->
+        {% if messages %}
+        <!-- Šī rinda pārbauda, vai ir vismaz viens paziņojums. -->
+        <section class="flash-konteiners">
+            <!-- Šī rinda izveido konteineru paziņojumiem. -->
+            {% for category, message in messages %}
+            <!-- Šī rinda iziet cauri visiem paziņojumiem. -->
+            <div class="flash {{ category }}">{{ message }}</div>
+            <!-- Šī rinda parāda konkrēto paziņojumu ar kategorijas stilu. -->
+            {% endfor %}
+            <!-- Šī rinda aizver paziņojumu ciklu. -->
+        </section>
+        <!-- Šī rinda aizver paziņojumu konteineru. -->
+        {% endif %}
+        <!-- Šī rinda aizver paziņojumu esamības pārbaudi. -->
+        {% endwith %}
+        <!-- Šī rinda aizver get_flashed_messages bloku. -->
+
+        {% block saturs %}{% endblock %}
+        <!-- Šī rinda ir vieta, kur katra konkrētā lapa ievieto savu saturu. -->
+    </main>
+    <!-- Šī rinda aizver galveno satura bloku. -->
+</body>
+<!-- Šī rinda aizver dokumenta body daļu. -->
+</html>
+<!-- Šī rinda aizver visu HTML dokumentu. -->

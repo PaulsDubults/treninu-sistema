@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto kopējo izkārtojumu no base.html. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk lapas unikālo satura daļu. -->
+<section class="karte hero">
+    <!-- Šī rinda izveido galveno sākumlapas karti. -->
+    <h2>Par projektu</h2>
+    <!-- Šī rinda parāda sadaļas virsrakstu. -->
+    <p>Šī sistēma palīdz lietotājiem apskatīt savu treniņu plānu, ievadīt rezultātus un sekot progresam.</p>
+    <!-- Šī rinda īsi apraksta projekta galveno mērķi. -->
+    <p>Sistēmā ir divas lomas: <strong>lietotājs</strong> un <strong>admins</strong>.</p>
+    <!-- Šī rinda izskaidro lietotāju lomas. -->
+    <div class="pogu-rinda">
+        <!-- Šī rinda izveido pogu grupu. -->
+        <a class="poga" href="{{ url_for('auth.pieslegties') }}">Pieslēgties</a>
+        <!-- Šī rinda izveido pogu uz pieslēgšanās lapu. -->
+        <a class="poga poga-otra" href="{{ url_for('auth.registreties') }}">Reģistrēties</a>
+        <!-- Šī rinda izveido pogu uz reģistrācijas lapu. -->
+    </div>
+    <!-- Šī rinda aizver pogu grupu. -->
+</section>
+<!-- Šī rinda aizver galveno karti. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

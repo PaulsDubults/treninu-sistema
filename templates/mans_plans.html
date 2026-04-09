@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto kopējo lapas struktūru. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk plāna lapas saturu. -->
+<section class="karte">
+    <!-- Šī rinda izveido plāna karti. -->
+    <h2>Mans treniņu plāns</h2>
+    <!-- Šī rinda parāda sadaļas nosaukumu. -->
+    <p>Šeit redzams tikai tava konta plāns.</p>
+    <!-- Šī rinda paskaidro datu aizsardzības principu. -->
+</section>
+<!-- Šī rinda aizver ievada karti. -->
+
+{% for diena, ieraksti in plani_pa_dienam.items() %}
+<!-- Šī rinda iziet cauri visām nedēļas dienām vārdnīcā. -->
+<section class="karte">
+    <!-- Šī rinda izveido karti konkrētajai dienai. -->
+    <h3>{{ diena }}</h3>
+    <!-- Šī rinda parāda dienas nosaukumu. -->
+    {% if ieraksti %}
+    <!-- Šī rinda pārbauda, vai dienai ir vismaz viens ieraksts. -->
+    <table class="tabula">
+        <!-- Šī rinda izveido datu tabulu. -->
+        <thead>
+            <!-- Šī rinda sāk tabulas galveni. -->
+            <tr>
+                <!-- Šī rinda sāk galvenes rindu. -->
+                <th>Vingrinājums</th>
+                <!-- Šī rinda parāda vingrinājuma kolonnas nosaukumu. -->
+                <th>Komplekti</th>
+                <!-- Šī rinda parāda komplektu kolonnas nosaukumu. -->
+                <th>Atkārtojumi</th>
+                <!-- Šī rinda parāda atkārtojumu kolonnas nosaukumu. -->
+            </tr>
+            <!-- Šī rinda aizver galvenes rindu. -->
+        </thead>
+        <!-- Šī rinda aizver galveni. -->
+        <tbody>
+            <!-- Šī rinda sāk tabulas pamatdaļu. -->
+            {% for ieraksts in ieraksti %}
+            <!-- Šī rinda iziet cauri konkrētās dienas ierakstiem. -->
+            <tr>
+                <!-- Šī rinda sāk vienu datu rindu. -->
+                <td>{{ ieraksts['nosaukums'] }}</td>
+                <!-- Šī rinda parāda vingrinājuma nosaukumu. -->
+                <td>{{ ieraksts['komplekti'] }}</td>
+                <!-- Šī rinda parāda komplektu skaitu. -->
+                <td>{{ ieraksts['atkartojumi'] }}</td>
+                <!-- Šī rinda parāda atkārtojumu skaitu. -->
+            </tr>
+            <!-- Šī rinda aizver vienu datu rindu. -->
+            {% endfor %}
+            <!-- Šī rinda aizver ierakstu ciklu. -->
+        </tbody>
+        <!-- Šī rinda aizver tabulas pamatdaļu. -->
+    </table>
+    <!-- Šī rinda aizver tabulu. -->
+    {% else %}
+    <!-- Šī rinda sāk gadījumu, kad dienai nav ierakstu. -->
+    <p>Šai dienai plāns vēl nav pievienots.</p>
+    <!-- Šī rinda parāda informāciju par tukšu dienu. -->
+    {% endif %}
+    <!-- Šī rinda aizver ierakstu esamības pārbaudi. -->
+</section>
+<!-- Šī rinda aizver dienas karti. -->
+{% endfor %}
+<!-- Šī rinda aizver dienu ciklu. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

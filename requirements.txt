@@ -1,0 +1,5 @@
+# Šī rinda nosaka Flask bibliotēku tīmekļa lietotnes darbībai.
+Flask==3.1.0
+
+# Šī rinda nosaka Flask-Login bibliotēku lietotāju autorizācijai.
+Flask-Login==0.6.3

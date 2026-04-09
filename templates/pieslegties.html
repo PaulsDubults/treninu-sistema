@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto izkārtojumu no base faila. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk lapas satura bloku. -->
+<section class="karte forma-karte">
+    <!-- Šī rinda izveido pieslēgšanās karti. -->
+    <h2>Pieslēgties sistēmai</h2>
+    <!-- Šī rinda parāda virsrakstu. -->
+    <form method="post">
+        <!-- Šī rinda izveido formu ar POST metodi. -->
+        <label for="lietotajvards">Lietotājvārds</label>
+        <!-- Šī rinda izveido lauka nosaukumu. -->
+        <input id="lietotajvards" name="lietotajvards" type="text" required>
+        <!-- Šī rinda izveido lietotājvārda ievadlauku. -->
+        <label for="parole">Parole</label>
+        <!-- Šī rinda izveido paroles lauka nosaukumu. -->
+        <input id="parole" name="parole" type="password" required>
+        <!-- Šī rinda izveido paroles ievadlauku. -->
+        <button type="submit" class="poga">Pieslēgties</button>
+        <!-- Šī rinda izveido formas nosūtīšanas pogu. -->
+    </form>
+    <!-- Šī rinda aizver formu. -->
+</section>
+<!-- Šī rinda aizver karti. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

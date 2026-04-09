@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto kopējo izkārtojumu. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk lapas saturu. -->
+<section class="karte forma-karte">
+    <!-- Šī rinda izveido karti rezultāta pievienošanai. -->
+    <h2>Pievienot rezultātu</h2>
+    <!-- Šī rinda parāda virsrakstu. -->
+    <form method="post">
+        <!-- Šī rinda atver POST formu. -->
+        <label for="vingrinajums_id">Vingrinājums</label>
+        <!-- Šī rinda parāda vingrinājuma lauka etiķeti. -->
+        <select id="vingrinajums_id" name="vingrinajums_id" required>
+            <!-- Šī rinda izveido nolaižamo sarakstu. -->
+            <option value="">Izvēlies vingrinājumu</option>
+            <!-- Šī rinda izveido tukšo sākuma opciju. -->
+            {% for vingrinajums in vingrinajumi %}
+            <!-- Šī rinda iziet cauri visiem vingrinājumiem. -->
+            <option value="{{ vingrinajums['id'] }}">{{ vingrinajums['nosaukums'] }}</option>
+            <!-- Šī rinda izveido vienu opciju no datubāzes ieraksta. -->
+            {% endfor %}
+            <!-- Šī rinda aizver ciklu. -->
+        </select>
+        <!-- Šī rinda aizver select lauku. -->
+        <label for="datums">Datums</label>
+        <!-- Šī rinda parāda datuma lauka etiķeti. -->
+        <input id="datums" name="datums" type="date" required>
+        <!-- Šī rinda izveido datuma ievadlauku. -->
+        <label for="svars_kg">Svars (kg)</label>
+        <!-- Šī rinda parāda svara etiķeti. -->
+        <input id="svars_kg" name="svars_kg" type="number" step="0.1" min="0" value="0">
+        <!-- Šī rinda izveido svara ievadlauku. -->
+        <label for="komplekti">Komplekti</label>
+        <!-- Šī rinda parāda komplektu etiķeti. -->
+        <input id="komplekti" name="komplekti" type="number" min="1" value="1" required>
+        <!-- Šī rinda izveido komplektu ievadlauku. -->
+        <label for="atkartojumi">Atkārtojumi</label>
+        <!-- Šī rinda parāda atkārtojumu etiķeti. -->
+        <input id="atkartojumi" name="atkartojumi" type="number" min="1" required>
+        <!-- Šī rinda izveido atkārtojumu ievadlauku. -->
+        <label for="piezimes">Piezīmes</label>
+        <!-- Šī rinda parāda piezīmju lauka etiķeti. -->
+        <textarea id="piezimes" name="piezimes" rows="4"></textarea>
+        <!-- Šī rinda izveido piezīmju laukumu. -->
+        <button type="submit" class="poga">Saglabāt rezultātu</button>
+        <!-- Šī rinda izveido nosūtīšanas pogu. -->
+    </form>
+    <!-- Šī rinda aizver formu. -->
+</section>
+<!-- Šī rinda aizver karti. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

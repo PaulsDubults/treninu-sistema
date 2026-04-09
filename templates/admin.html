@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto bāzes izkārtojumu. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk admin satura bloku. -->
+<section class="karte">
+    <!-- Šī rinda izveido admin ievada karti. -->
+    <h2>Administratora panelis</h2>
+    <!-- Šī rinda parāda admin virsrakstu. -->
+    <p>Šī sadaļa ir pieejama tikai lietotājiem ar administratora lomu.</p>
+    <!-- Šī rinda paskaidro piekļuves ierobežojumu. -->
+    <div class="pogu-rinda">
+        <!-- Šī rinda sāk pogu grupu. -->
+        <a class="poga" href="{{ url_for('admin.admin_vingrinajumi') }}">Vingrinājumi</a>
+        <!-- Šī rinda parāda saiti uz vingrinājumu sadaļu. -->
+        <a class="poga" href="{{ url_for('admin.admin_plani') }}">Plāni</a>
+        <!-- Šī rinda parāda saiti uz plānu sadaļu. -->
+        <a class="poga" href="{{ url_for('admin.admin_lietotaji') }}">Lietotāji</a>
+        <!-- Šī rinda parāda saiti uz lietotāju sadaļu. -->
+    </div>
+    <!-- Šī rinda aizver pogu grupu. -->
+</section>
+<!-- Šī rinda aizver admin karti. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->

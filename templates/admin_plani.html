@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+<!-- Šī rinda manto base izkārtojumu. -->
+
+{% block saturs %}
+<!-- Šī rinda sāk admin plānu saturu. -->
+<section class="karte forma-karte">
+    <!-- Šī rinda izveido jauna plāna ieraksta pievienošanas karti. -->
+    <h2>Pievienot plāna ierakstu</h2>
+    <!-- Šī rinda parāda virsrakstu. -->
+    <form method="post">
+        <!-- Šī rinda atver POST formu. -->
+        <label for="lietotajs_id">Lietotājs</label>
+        <!-- Šī rinda parāda lietotāja etiķeti. -->
+        <select id="lietotajs_id" name="lietotajs_id" required>
+            <!-- Šī rinda izveido lietotāju sarakstu. -->
+            <option value="">Izvēlies lietotāju</option>
+            <!-- Šī rinda izveido tukšo sākuma izvēli. -->
+            {% for lietotajs in lietotaji %}
+            <!-- Šī rinda iziet cauri visiem lietotājiem. -->
+            <option value="{{ lietotajs['id'] }}">{{ lietotajs['vards'] }} ({{ lietotajs['lietotajvards'] }})</option>
+            <!-- Šī rinda izveido vienu lietotāja opciju. -->
+            {% endfor %}
+            <!-- Šī rinda aizver lietotāju ciklu. -->
+        </select>
+        <!-- Šī rinda aizver select lauku. -->
+
+        <label for="vingrinajums_id">Vingrinājums</label>
+        <!-- Šī rinda parāda vingrinājuma etiķeti. -->
+        <select id="vingrinajums_id" name="vingrinajums_id" required>
+            <!-- Šī rinda izveido vingrinājumu sarakstu. -->
+            <option value="">Izvēlies vingrinājumu</option>
+            <!-- Šī rinda izveido tukšo izvēli. -->
+            {% for vingrinajums in vingrinajumi %}
+            <!-- Šī rinda iziet cauri visiem vingrinājumiem. -->
+            <option value="{{ vingrinajums['id'] }}">{{ vingrinajums['nosaukums'] }}</option>
+            <!-- Šī rinda izveido vienu vingrinājuma opciju. -->
+            {% endfor %}
+            <!-- Šī rinda aizver vingrinājumu ciklu. -->
+        </select>
+        <!-- Šī rinda aizver select lauku. -->
+
+        <label for="nedelas_diena">Nedēļas diena</label>
+        <!-- Šī rinda parāda dienas etiķeti. -->
+        <select id="nedelas_diena" name="nedelas_diena" required>
+            <!-- Šī rinda izveido dienu sarakstu. -->
+            <option value="MON">Pirmdiena</option>
+            <!-- Šī rinda pievieno pirmdienu. -->
+            <option value="TUE">Otrdiena</option>
+            <!-- Šī rinda pievieno otrdienu. -->
+            <option value="WED">Trešdiena</option>
+            <!-- Šī rinda pievieno trešdienu. -->
+            <option value="THU">Ceturtdiena</option>
+            <!-- Šī rinda pievieno ceturtdienu. -->
+            <option value="FRI">Piektdiena</option>
+            <!-- Šī rinda pievieno piektdienu. -->
+            <option value="SAT">Sestdiena</option>
+            <!-- Šī rinda pievieno sestdienu. -->
+            <option value="SUN">Svētdiena</option>
+            <!-- Šī rinda pievieno svētdienu. -->
+        </select>
+        <!-- Šī rinda aizver dienu sarakstu. -->
+
+        <label for="komplekti">Komplekti</label>
+        <!-- Šī rinda parāda komplektu etiķeti. -->
+        <input id="komplekti" name="komplekti" type="number" min="1" required>
+        <!-- Šī rinda izveido komplektu ievadlauku. -->
+
+        <label for="atkartojumi">Atkārtojumi</label>
+        <!-- Šī rinda parāda atkārtojumu etiķeti. -->
+        <input id="atkartojumi" name="atkartojumi" type="number" min="1" required>
+        <!-- Šī rinda izveido atkārtojumu ievadlauku. -->
+
+        <label for="seciba">Secība</label>
+        <!-- Šī rinda parāda secības etiķeti. -->
+        <input id="seciba" name="seciba" type="number" min="1" value="1" required>
+        <!-- Šī rinda izveido secības ievadlauku. -->
+
+        <button type="submit" class="poga">Saglabāt plāna ierakstu</button>
+        <!-- Šī rinda izveido iesniegšanas pogu. -->
+    </form>
+    <!-- Šī rinda aizver formu. -->
+</section>
+<!-- Šī rinda aizver formu karti. -->
+
+<section class="karte">
+    <!-- Šī rinda izveido tabulas karti. -->
+    <h3>Esošie plāna ieraksti</h3>
+    <!-- Šī rinda parāda tabulas virsrakstu. -->
+    <table class="tabula">
+        <!-- Šī rinda izveido plāna tabulu. -->
+        <thead><tr><th>Lietotājs</th><th>Diena</th><th>Vingrinājums</th><th>Komplekti</th><th>Atkārtojumi</th><th>Secība</th></tr></thead>
+        <!-- Šī rinda izveido tabulas galveni. -->
+        <tbody>
+            <!-- Šī rinda sāk tabulas pamatdaļu. -->
+            {% for plans in plani %}
+            <!-- Šī rinda iziet cauri visiem plāna ierakstiem. -->
+            <tr>
+                <!-- Šī rinda sāk vienu tabulas rindu. -->
+                <td>{{ plans['vards'] }} ({{ plans['lietotajvards'] }})</td>
+                <!-- Šī rinda parāda lietotāju. -->
+                <td>{{ plans['nedelas_diena'] }}</td>
+                <!-- Šī rinda parāda dienu. -->
+                <td>{{ plans['nosaukums'] }}</td>
+                <!-- Šī rinda parāda vingrinājumu. -->
+                <td>{{ plans['komplekti'] }}</td>
+                <!-- Šī rinda parāda komplektus. -->
+                <td>{{ plans['atkartojumi'] }}</td>
+                <!-- Šī rinda parāda atkārtojumus. -->
+                <td>{{ plans['seciba'] }}</td>
+                <!-- Šī rinda parāda secību. -->
+            </tr>
+            <!-- Šī rinda aizver vienu rindu. -->
+            {% endfor %}
+            <!-- Šī rinda aizver plānu ciklu. -->
+        </tbody>
+        <!-- Šī rinda aizver tabulas pamatdaļu. -->
+    </table>
+    <!-- Šī rinda aizver tabulu. -->
+</section>
+<!-- Šī rinda aizver tabulas karti. -->
+{% endblock %}
+<!-- Šī rinda aizver satura bloku. -->
